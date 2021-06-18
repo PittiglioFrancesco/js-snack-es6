@@ -21,14 +21,18 @@ const bici = [
     }
 ];
 
-let pesMin = bici[0].peso;
+let biciLeggera = bici[0];
 for (let i = 1; i < bici.length; i++){
-    if (pesMin > bici[i].peso) {
-        pesMin = bici[i].peso;
+    if (biciLeggera.peso > bici[i].peso) {
+        biciLeggera = bici[i].peso;
     }
 }
 
-document.getElementById("demo").innerHTML = "La bici col peso minore equivale a " + pesMin + ".";
+const {nome, peso} = biciLeggera;
+
+document.getElementById("demo").innerHTML = `
+    La bici più leggera è la ${nome}, con peso pari a ${peso}
+`;
 
 
 
@@ -72,6 +76,6 @@ for (let i = 0; i < squadra.length; i++){
 
 //function
 
-randomGen = (min, max) => {
+function randomGen(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
